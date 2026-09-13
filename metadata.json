@@ -1,0 +1,8 @@
+{
+  "name": "Remix  Quiz Ritual da Limpeza Profunda 2",
+  "description": "Quiz interativo de 15 etapas para diagnóstico de constipação e apresentação do mecanismo Ritual da Limpeza Profunda.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

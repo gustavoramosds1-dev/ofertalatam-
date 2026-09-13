@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var _origFetch = window.fetch ? window.fetch.bind(window) : null;
+          var _currentFetch = _origFetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function () {
+              return _currentFetch;
+            },
+            set: function (newFetch) {
+              _currentFetch = newFetch;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (e) {}
+
+        // Desativar clique direito / menu de contexto
+        document.addEventListener('contextmenu', function (e) {
+          e.preventDefault();
+          return false;
+        }, { capture: true });
+
+        // Desativar copiar, cortar e colar
+        document.addEventListener('copy', function (e) {
+          e.preventDefault();
+          return false;
+        }, { capture: true });
+
+        document.addEventListener('cut', function (e) {
+          e.preventDefault();
+          return false;
+        }, { capture: true });
+
+        document.addEventListener('paste', function (e) {
+          e.preventDefault();
+          return false;
+        }, { capture: true });
+
+        // Desativar seleção de texto e arrastar
+        document.addEventListener('selectstart', function (e) {
+          e.preventDefault();
+          return false;
+        }, { capture: true });
+
+        document.addEventListener('dragstart', function (e) {
+          e.preventDefault();
+          return false;
+        }, { capture: true });
+
+        // Bloquear atalhos de teclado para inspecionar elemento, código fonte e copiar/colar
+        document.addEventListener('keydown', function (e) {
+          // F12
+          if (e.key === 'F12' || e.keyCode === 123) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+
+          var isCtrlOrCmd = e.ctrlKey || e.metaKey;
+
+          if (isCtrlOrCmd) {
+            var key = (e.key || '').toLowerCase();
+
+            // Ctrl+Shift+I (DevTools Inspect)
+            // Ctrl+Shift+J (DevTools Console)
+            // Ctrl+Shift+C (DevTools Inspect Element)
+            // Ctrl+Shift+K (Firefox DevTools)
+            if (e.shiftKey && (key === 'i' || key === 'j' || key === 'c' || key === 'k')) {
+              e.preventDefault();
+              e.stopPropagation();
+              return false;
+            }
+
+            // Ctrl+U (Ver código fonte)
+            // Ctrl+S (Salvar página)
+            // Ctrl+C (Copiar)
+            // Ctrl+V (Colar)
+            // Ctrl+X (Recortar)
+            // Ctrl+A (Selecionar tudo)
+            // Ctrl+P (Imprimir)
+            if (
+              key === 'u' ||
+              key === 's' ||
+              key === 'c' ||
+              key === 'v' ||
+              key === 'x' ||
+              key === 'a' ||
+              key === 'p'
+            ) {
+              e.preventDefault();
+              e.stopPropagation();
+              return false;
+            }
+          }
+        }, { capture: true });
+      })();
+    </script>
+    <title>Quiz Ritual de Limpieza Profunda</title>
+    <meta name="description" content="Quiz interactivo de 15 pasos para evaluación de estreñimiento y presentación del mecanismo Ritual de Limpieza Profunda." />
+    <meta property="og:title" content="Quiz Ritual de Limpieza Profunda" />
+    <meta property="og:description" content="Quiz interactivo de 15 pasos para evaluación de estreñimiento y presentación del mecanismo Ritual de Limpieza Profunda." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Conexões de Rede Otimizadas (DNS-Prefetch e Preconnect) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://i.imgur.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://i.imgur.com" crossorigin>
+
+    <!-- Carregamento Assíncrono e Não Bloqueante de Fontes com Fallback Perfeito -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap">
+    </noscript>
+
+    <!-- Preload de todas as imagens do quiz com prioridade máxima -->
+    <link rel="preload" as="image" href="/assets/logo_quiz.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/bristol_etapa_4.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/imagem_etapa_6.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/noticia_etapa_11.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/imagem_etapa_13.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- Script de Aceleração Ultrarrápida (Pre-decode, Turbo Caching & Instant Response) -->
+    <script>
+      (function () {
+        // 1. Decodificação assíncrona imediata de todas as imagens na GPU para renderização instantânea (0ms delay)
+        var allQuizImages = [
+          '/assets/logo_quiz.webp',
+          '/assets/bristol_etapa_4.webp',
+          '/assets/imagem_etapa_6.webp',
+          '/assets/noticia_etapa_11.webp',
+          '/assets/imagem_etapa_13.webp',
+          '/assets/logo_quiz.png'
+        ];
+
+        function fastDecode(url) {
+          try {
+            var img = new Image();
+            img.src = url;
+            if ('decode' in img) {
+              img.decode().catch(function () {});
+            }
+          } catch (e) {}
+        }
+
+        // Decodifica todas as imagens imediatamente
+        allQuizImages.forEach(fastDecode);
+
+        // 2. Otimização de toque e eliminação de latência de clique no mobile
+        document.addEventListener('touchstart', function () {}, { passive: true });
+
+        // 3. Marcação de alta performance para CSS e viewport estável
+        document.documentElement.classList.add('js-turbo-ready');
+      })();
+    </script>
+  </head>
+  <body class="bg-[#FEFEFE] text-stone-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

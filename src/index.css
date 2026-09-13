@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* Ocultar barra de rolagem mantendo a funcionalidade de scroll nativa */
+html,
+body,
+* {
+  -ms-overflow-style: none; /* IE e Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Opera */
+}
+
+/* Utilitário específico para containers com scroll oculto */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Otimizações essenciais para Mobile e Proteção de Conteúdo */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #FEFEFE;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  touch-action: manipulation;
+  background-color: #FEFEFE;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  content-visibility: auto;
+}
+
+/* Otimização de renderização tipográfica e aceleração de GPU */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Aceleração de hardware em transições */
+button,
+a {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
